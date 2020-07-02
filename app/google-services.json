@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "284698477365",
+    "firebase_url": "https://m-tenant-firebase.firebaseio.com",
+    "project_id": "m-tenant-firebase",
+    "storage_bucket": "m-tenant-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284698477365:android:0540af0019022b0f45427c",
+        "android_client_info": {
+          "package_name": "com.saudi.m_tenant_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "284698477365-fhcfa5ijs947ts4pl5ner45qrgaenb19.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1wgRjszDFH-jhagXiAeA1aWEyQvF9yic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "284698477365-fhcfa5ijs947ts4pl5ner45qrgaenb19.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

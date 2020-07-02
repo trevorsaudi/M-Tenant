@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme.NoActionBar"    parent="Theme.MaterialComponents.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+        <item name="colorPrimary">#69B55C</item>
+        <item name="colorPrimaryDark">#00000000</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item   name="android:windowContentTransitions">true</item>
+    </style>
+
+    <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">#FFFFFF</item>
+    </style>
+
+</resources>
