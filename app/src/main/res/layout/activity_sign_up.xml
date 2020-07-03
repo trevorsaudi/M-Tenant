@@ -146,6 +146,7 @@ android:orientation="vertical"
         android:background="#000"
         android:textColor="#fff"
         android:transitionName="button_tran"
+        android:onClick="registerUser"
         />
 
     <Button
