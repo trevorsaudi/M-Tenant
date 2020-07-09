@@ -61,7 +61,7 @@
         android:fontFamily="@font/antic"
         android:text="Tenant Management Application"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#69B55C"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

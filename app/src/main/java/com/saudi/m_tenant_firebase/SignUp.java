@@ -12,12 +12,14 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.regex.Pattern;
+
 public class SignUp extends AppCompatActivity {
 
     //variables
     TextInputLayout regName, regUsername, regEmail, regPhoneNo, regPassword;
     Button regBtn, regToLoginBtn;
-
+    Pattern pattern;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
 
@@ -126,37 +128,27 @@ public class SignUp extends AppCompatActivity {
             return true;
         }
     }
-    private Boolean validatePassword() {
-        String val = regName.getEditText().getText().toString();
-        String passwordVal = "^" +
-                //"(?=.*[0-9])" +         //at least 1 digit
-                //"(?=.*[a-z])" +         //at least 1 lower case letter
-                //"(?=.*[A-Z])" +         //at least 1 upper case letter
-                "(?=.*[a-zA-Z])" +      //any letter
-                "(?=.*[@#$%^&+=])" +    //at least 1 special character
-                "(?=\\S+$)" +           //no white spaces
-                ".{4,}" +               //at least 4 characters
-                "$";
-
-
-
-        if (val.isEmpty()) {
-            regPassword.setError("Field cannot be empty");
-            return false;
-        } else if (!val.matches(passwordVal)) {
-            regPassword.setError("Password is too weak");
-            return false;
-        } else {
-            regPassword.setError(null);
-            regPassword.setErrorEnabled(false);
-            return true;
-        }
-    }
+//    private Boolean validatePassword() {
+//        String val = regName.getEditText().getText().toString();
+//        String passwordVal =                //"(?=.*[0-9])" +         //at least 1 digit
+//                "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
+//        pattern = Pattern.compile(passwordVal);
+//        if (val.isEmpty()) {
+//            regPassword.setError("Field cannot be empty");
+//            return false;
+//        } else if (!val.matches(passwordVal)) {
+//            regPassword.setError("Password is too weak");
+//            return false;
+//        } else {
+//            regPassword.setError(null);
+//            regPassword.setErrorEnabled(false);
+//            return true;
+//    }
 
 
     public void registerUser(View view) {
 
-        if(!validateName() | !validatePassword() | !validatePhoneNo() | !validateEmail() | !validateUsername()){
+        if(!validateName()  | !validatePhoneNo() | !validateEmail() | !validateUsername()){
             return;
         }
 //        get all the values in the string
