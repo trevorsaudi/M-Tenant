@@ -33,6 +33,7 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
 
 //        toolbar
         setSupportActionBar(toolbar);
+
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         //toolbar.setNavigationIcon(R.drawable.ic_toolbar);
         toolbar.setTitle("");

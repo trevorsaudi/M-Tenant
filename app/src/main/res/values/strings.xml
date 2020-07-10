@@ -1,6 +1,10 @@
 <resources>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="my_dashboard">My Dashboard</string>
+    <string name="_8_items">8 items</string>
+    <string name="welcome_abubakar">Welcome ABu</string>
+    <string name="tenants">Tenants</string>
 
     <string name="app_name">M-Tenant</string>
 </resources>
