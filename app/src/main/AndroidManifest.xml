@@ -10,15 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".Landlord_profile">
+
+
+
+        </activity>
+        <activity android:name=".UserProfile">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-
-        </activity>
-        <activity android:name=".UserProfile">
 
         </activity>
         <activity android:name=".SignUp" />
