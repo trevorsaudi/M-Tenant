@@ -116,7 +116,6 @@
             android:elevation="0dp"
             android:fontFamily="@font/antic"
             android:text="New User? SIGN UP"
-
             android:textColor="#69B55C"
             android:transitionName="login_signup_tran"
 

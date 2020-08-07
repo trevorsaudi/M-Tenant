@@ -5,6 +5,17 @@
     <string name="_8_items">8 items</string>
     <string name="welcome_abubakar">Welcome ABu</string>
     <string name="tenants">Tenants</string>
-
     <string name="app_name">M-Tenant</string>
+    <string name="title1">Welcome</string>
+    <string name="title2">Improve your skills</string>
+    <string name="title3">Grow your audience</string>
+    <string name="descriptions">Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit. Deserunt iure, porro? Accusantium, veritatis.</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="done">Done</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
