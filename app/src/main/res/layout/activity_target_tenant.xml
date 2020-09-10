@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+
+    android:fitsSystemWindows="true"
+    tools:context=".Target_tenant">
+    <include
+        layout="@layout/appbar"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:background="#003B2E"
+     android:padding="20dp"
+        >
+
+
+
+
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/textViewName"-->
+<!--        android:text="Cess"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textColor="@android:color/white"/>-->
+
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/textViewUserName"-->
+<!--        android:text="Cesss"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textColor="@android:color/white"/>-->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/textViewEmail"-->
+<!--        android:text="Cess@gmail.com"-->
+<!--        android:textSize="24sp"-->
+<!--        android:textColor="@android:color/white"/>-->
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/textViewPhoneNumber"-->
+<!--        android:text="pNo"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textColor="@android:color/white"/>-->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/textViewApartmentNo"-->
+<!--        android:text="Apartment"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textColor="@android:color/white"/>-->
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/textViewPassword"-->
+<!--        android:text="Password"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textColor="@android:color/white"/>-->
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/textViewRent"-->
+<!--        android:text="$13000"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textColor="@android:color/white"/>-->
+
+<!--</LinearLayout>-->
+
+
+
+<!--<LinearLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:orientation="vertical"-->
+<!--android:padding="20dp">-->
+
+
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:hint="Full Name">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textViewName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_account_circle2"
+        android:drawablePadding="10dp"
+        android:text="Trevor Saudi"
+
+        />
+
+
+
+
+</com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="Username">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textViewUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_account_circle2"
+        android:drawablePadding="10dp"
+        android:text="Trevor"
+
+        />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:hint="Email">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textViewEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_email"
+        android:drawablePadding="10dp"
+        android:text="isatrevor052@gmail.com"
+
+        />
+
+
+</com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="Apartment no">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textViewApartmentNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_email"
+            android:drawablePadding="10dp"
+            android:text="14"
+
+            />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="Rent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textViewRent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_email"
+            android:drawablePadding="10dp"
+            android:text="$13000"
+
+            />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:hint="Phone No">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textViewPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_phone"
+        android:drawablePadding="10dp"
+        android:text="0703193906"
+
+        />
+
+
+</com.google.android.material.textfield.TextInputLayout>
+
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:hint="Password">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textViewPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_eye"
+        android:drawablePadding="10dp"
+        android:text="hello1235"
+
+        />
+
+
+</com.google.android.material.textfield.TextInputLayout>
+
+<Button
+    android:id="@+id/update"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#002B21"
+    android:fontFamily="@font/autour_one"
+    android:text="Update"
+    android:textColor="@android:color/white"/>
+
+
+</LinearLayout>
+
+
+</LinearLayout>

@@ -6,7 +6,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.saudi.m_tenant_firebase"
+        applicationId "com.example.finalmtenant"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -33,8 +33,18 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta8"
     implementation 'com.google.firebase:firebase-database:19.3.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.firebaseui:firebase-ui-database:6.2.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
+    implementation 'com.google.firebase:firebase-auth:19.3.2'
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+
+    implementation 'com.androidstudy:daraja:1.0.2'
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+    implementation 'com.paypal.sdk:paypal-android-sdk:2.15.3'
+
 }

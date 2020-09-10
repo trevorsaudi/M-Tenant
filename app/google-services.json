@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "284698477365",
-    "firebase_url": "https://m-tenant-firebase.firebaseio.com",
-    "project_id": "m-tenant-firebase",
-    "storage_bucket": "m-tenant-firebase.appspot.com"
+    "project_number": "812400581592",
+    "firebase_url": "https://m-tenant.firebaseio.com",
+    "project_id": "m-tenant",
+    "storage_bucket": "m-tenant.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:284698477365:android:0540af0019022b0f45427c",
+        "mobilesdk_app_id": "1:812400581592:android:ef702d3bb23a6d89d330ad",
         "android_client_info": {
-          "package_name": "com.saudi.m_tenant_firebase"
+          "package_name": "com.example.finalmtenant"
         }
       },
       "oauth_client": [
         {
-          "client_id": "284698477365-fhcfa5ijs947ts4pl5ner45qrgaenb19.apps.googleusercontent.com",
+          "client_id": "812400581592-gtig840dum3oemf49u8e5gfnt9j2u2q3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC1wgRjszDFH-jhagXiAeA1aWEyQvF9yic"
+          "current_key": "AIzaSyCoCx2YMvL7610baqCTFZyReJZ89ca_jME"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "284698477365-fhcfa5ijs947ts4pl5ner45qrgaenb19.apps.googleusercontent.com",
+              "client_id": "812400581592-gtig840dum3oemf49u8e5gfnt9j2u2q3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

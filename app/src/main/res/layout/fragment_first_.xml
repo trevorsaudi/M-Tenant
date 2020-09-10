@@ -15,14 +15,14 @@
         android:layout_height="250dp"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
-        android:src="@drawable/slide_one_img" />
+        android:src="@drawable/fragment_1" />
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/lato_regular"
         android:gravity="center"
         android:text="@string/title1"
@@ -32,9 +32,9 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="400dp"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:fontFamily="@font/lato_light"
-        android:text="@string/descriptions"
+        android:text="Want to get on track with managing your tenants?"
         android:textColor="@color/white"
         android:textSize="18sp"
 

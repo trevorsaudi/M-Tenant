@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-
+                android:textColor="@android:color/white"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -67,14 +67,13 @@
             android:layout_height="wrap_content"
             android:hint="Username"
             android:textColorHint="@android:color/white"
-            app:counterEnabled="true"
-
-            app:counterMaxLength="15">
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="@android:color/white"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,7 +90,8 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/white"/>
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -109,7 +109,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textColor="@android:color/white"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -129,7 +130,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@android:color/white"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -141,18 +143,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#000"
-        android:onClick="registerUser"
-        android:text="GO"
+
+        android:text="SIGN UP"
         android:textColor="#fff"
         android:transitionName="button_tran" />
 
-    <Button
+    <TextView
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:text="Already have an account? LogIn"
-        android:textColor="#69B55C"
+        android:textColor="#fff"
         android:transitionName="login_signup_tran" />
 
 

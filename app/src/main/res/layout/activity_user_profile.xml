@@ -32,10 +32,6 @@
         android:orientation="vertical"
         >
 
-
-
-
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="300dp"
@@ -75,6 +71,7 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/full_name"
@@ -275,11 +272,20 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:id="@+id/pay_mpesa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#002B21"
                 android:fontFamily="@font/autour_one"
-                android:text="Update"
+                android:text="Pay Mpesa"
+                android:textColor="@android:color/white"/>
+            <Button
+                android:id="@+id/pay_paypal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#002B21"
+                android:fontFamily="@font/autour_one"
+                android:text="Pay Paypal"
                 android:textColor="@android:color/white"/>
 
 

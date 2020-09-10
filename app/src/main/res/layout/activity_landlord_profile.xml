@@ -58,6 +58,7 @@
                     android:textSize="24sp" />
 
                 <TextView
+                    android:id="@+id/name"
                     android:paddingLeft="65dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -102,17 +103,20 @@
                         android:padding="16dp">
 
                         <ImageView
+
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:src="@drawable/man" />
 
                         <TextView
+                            android:id="@+id/tenants"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
                             android:text="@string/tenants"
                             android:textColor="#ffffff"
-                            android:textSize="15sp" />
+                            android:textSize="15sp"
+                            android:clickable="true"/>
 
 
                     </LinearLayout>
@@ -142,12 +146,14 @@
                             android:src="@drawable/money" />
 
                         <TextView
+                            android:id="@+id/total"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
                             android:text="Total"
                             android:textColor="#FFFFFF"
-                            android:textSize="15sp" />
+                            android:textSize="15sp"
+                            android:clickable="true"/>
 
 
                     </LinearLayout>
@@ -209,13 +215,13 @@
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/alarm" />
+                            android:src="@drawable/robot" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
-                            android:text="Notification"
+                            android:text="Chatbot"
                             android:textColor="#ffffff"
                             android:textSize="15sp" />
 
@@ -283,12 +289,15 @@
                             android:src="@drawable/exit" />
 
                         <TextView
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp"
                             android:text="LogOut"
                             android:textColor="#ffffff"
-                            android:textSize="15sp" />
+                            android:textSize="15sp"
+                            android:clickable="true"
+                            android:id="@+id/nav_logout"/>
 
 
                     </LinearLayout>

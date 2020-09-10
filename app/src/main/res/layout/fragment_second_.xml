@@ -17,26 +17,26 @@
         android:layout_height="250dp"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
-        android:src="@drawable/slide_two_img" />
+        android:src="@drawable/fragment_2" />
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/lato_regular"
         android:gravity="center"
-        android:text="@string/title2"
+        android:text="Easy payment tracking"
         android:textColor="@color/colorAccent"
         android:textSize="26sp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:fontFamily="@font/lato_light"
-        android:text="@string/descriptions"
+        android:text="Keep history and track all payments received from your tenant "
         android:textColor="@color/white"
         android:textSize="18sp"
 

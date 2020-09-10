@@ -14,7 +14,8 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/logo2"
-        android:transitionName="logo_image" />
+        android:transitionName="logo_image"
+        android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:id="@+id/logo_name"
@@ -46,11 +47,11 @@
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/username"
+            android:id="@+id/email"
             style="@style/LoginTextInputLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="Email"
 
             android:textColorHint="@android:color/white"
             android:transitionName="username_tran">
@@ -59,7 +60,8 @@
                 style="@style/LoginTextInputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:textColor="@android:color/white"
+                android:inputType="textEmailAddress"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -73,16 +75,20 @@
             android:textColorHint="@android:color/white"
 
             android:transitionName="password_tran"
-            app:passwordToggleEnabled="true">
+            app:passwordToggleEnabled="true"
+
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@android:color/white"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <TextView
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -101,13 +107,14 @@
             android:layout_margin="5dp"
             android:layout_marginBottom="5dp"
             android:background="#69B55C"
-            android:text="GO"
+            android:text="LOGIN"
             android:textColor="#fff"
             android:transitionName="button_tran"
 
             />
 
-        <Button
+        <TextView
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:id="@+id/signup_screen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -116,7 +123,8 @@
             android:elevation="0dp"
             android:fontFamily="@font/antic"
             android:text="New User? SIGN UP"
-            android:textColor="#69B55C"
+            android:textStyle="bold"
+            android:textColor="#fff"
             android:transitionName="login_signup_tran"
 
             />

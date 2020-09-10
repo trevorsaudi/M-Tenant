@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00271E"
+    android:orientation="vertical"
+    tools:context=".TenantsActivity">
+    <include
+        layout="@layout/appbar"
+        />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/logo_image"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="150dp"-->
+<!--        android:src="@drawable/logo2"-->
+<!--        android:transitionName="logo_image"-->
+<!--        android:layout_gravity="center_horizontal"/>-->
+<!--    <Button-->
+<!--        android:id="@+id/addNewTenant"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:padding="16dp"-->
+<!--        android:drawableLeft="@drawable/ic_add_circle"-->
+<!--        android:layout_gravity="right"-->
+<!--        android:text="Add new tenant"-->
+<!--        />-->
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:contentDescription="add"
+        android:backgroundTint="#B5E577"
+        android:src="@drawable/add" />
+
+
+
+</LinearLayout>

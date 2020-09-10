@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="9dp"
+    app:cardElevation="6dp"
+    app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="@android:color/transparent"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        >
+
+        <ImageView
+            android:id="@+id/imageIv"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/man"/>
+        <!--        <ImageView-->
+        <!--            android:layout_width="55dp"-->
+        <!--            android:layout_height="55dp"-->
+        <!--            android:id="@+id/imageMoney"-->
+        <!--            android:src="@drawable/money"/>-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewUserName"
+            android:text="Full Name"
+            android:textSize="19sp"
+            android:textColor="#69B55C"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/imageIv"
+            android:layout_toEndOf="@id/imageIv"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewApartmentNo"
+            android:text="4B"
+            android:textSize="16sp"
+            android:textColor="#a9a9a9"
+            android:layout_toRightOf="@id/imageIv"
+            android:layout_toEndOf="@id/imageIv"
+            android:drawableLeft="@drawable/housesmall"
+            android:drawablePadding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_below="@id/textViewUserName"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewRent"
+            android:text="23000$"
+            android:textSize="13sp"
+            android:textColor="#a9a9a9"
+            android:layout_toRightOf="@id/imageIv"
+            android:layout_toEndOf="@id/imageIv"
+            android:drawableLeft="@drawable/moneysmall"
+            android:drawablePadding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_below="@id/textViewApartmentNo"/>
+
+
+        <TextView
+            android:id="@+id/pen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/ic_create"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+
+            />
+
+        <TextView
+            android:id="@+id/trash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/pen"
+            android:background="@drawable/ic_delete"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+
