@@ -82,36 +82,47 @@ public class Login extends AppCompatActivity {
                 String pass = password.getEditText().getText().toString().trim();
 
                 if(!TextUtils.isEmpty(email)&& !TextUtils.isEmpty(pass)){
-                    mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-                                checkUserExistence();
-                            }
-                            else{
-                                Toast.makeText(Login.this,"Couldn't login, user not found", Toast.LENGTH_SHORT).show();
+//                    use firebase authentication instance you create and call the method
+//                    signInwithemailandpassword method passing the email and password you got from the views
+//                    Further call the addoncompletelistener() method to handle the authentication result
+                    mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(new
+                                                                                                   OnCompleteListener<AuthResult>() {
+                                                                                                       @Override
+                                                                                                       public void onComplete(@NonNull Task<AuthResult> task) {
+                                                                                                           if(task.isSuccessful()){
+//                                       create a method that will check if a user exists in the database reference
+                                                                                                               checkUserExistence();
+                                                                                                           }else{
+                                                                                                               Toast.makeText(Login.this,"Couldn't login, user not found", Toast.LENGTH_SHORT).show();
 
-                            }
-                        }
-                    });
-                }
-                else{
+                                                                                                           }
+                                                                                                       }
+
+
+                                                                                                   });
+                }else{
                     Toast.makeText(Login.this, "Complete all fields",Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
     }
 
+    //    check if the user exists
     public void checkUserExistence(){
+//        check the user existence of the user using the user id in users database referenve
         final String user_id = mAuth.getCurrentUser().getUid();
+//        call the method addvalueeventlistener on the database referenve of the user to determine if the current userID supplied exists in our database reference
         mDatabaseUsers.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.hasChild(user_id)){
-                    Intent intent = new Intent(Login.this, Landlord_profile.class);
-                    startActivity(intent);
-                }
-                else{
+            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+//                get a snapshot of the users database reference to determine if current user exists
+                if(datasnapshot.hasChild(user_id)){
+//                    if the user exists direct the user to teh mainactivity
+                    Intent mainPage = new Intent(Login.this, Landlord_profile.class);
+                    startActivity(mainPage);
+
+                }else{
 //                    if the user id does not exist show a toast
                     Toast.makeText(Login.this,"User not registered",Toast.LENGTH_SHORT).show();
 
@@ -124,101 +135,4 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-
-    /*private Boolean validateUsername() {
-        String val = username.getEditText().getText().toString();
-
-        if (val.isEmpty()) {
-            username.setError("Field cannot be empty");
-            return false;
-        } else {
-            username.setError(null);
-            username.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-
-    private Boolean validatePassword() {
-        String val = password.getEditText().getText().toString();
-
-
-        if (val.isEmpty()) {
-            password.setError("Field cannot be empty");
-            return false;
-        }else {
-            password.setError(null);
-            password.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-    public void loginUser(View view){
-//        validate login ingo
-        if(!validateUsername() | !validatePassword()){
-            return;
-        }else{
-            isUser();
-        }
-    }
-
-    private void isUser(){
-        final String userEnteredUsername = username.getEditText().getText().toString().trim();
-        final String userEnteredPassword = password.getEditText().getText().toString().trim();
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user");
-
-        Query checkUser = reference.orderByChild("username").equalTo(userEnteredUsername);
-        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                if(snapshot.exists()){
-
-                    username.setError(null);
-                    username.setErrorEnabled(false);
-
-
-                    String passwordFromDB = snapshot.child(userEnteredUsername).child("password").getValue(String.class);
-
-                    if(passwordFromDB.equals(userEnteredPassword)){
-
-
-
-                        String nameFromDB = snapshot.child(userEnteredUsername).child("name").getValue(String.class);
-                        String usernameFromDB = snapshot.child(userEnteredUsername).child("username").getValue(String.class);
-                        String phoneNoFromDB = snapshot.child(userEnteredUsername).child("phoneNo").getValue(String.class);
-                        String emailFromDB = snapshot.child(userEnteredUsername).child("email").getValue(String.class);
-
-
-                        Intent intent = new Intent(getApplicationContext(), UserProfile.class);
-
-                        intent.putExtra("name", nameFromDB);
-                        intent.putExtra("username", usernameFromDB);
-                        intent.putExtra("email", emailFromDB);
-                        intent.putExtra("phoneNo", phoneNoFromDB);
-                        intent.putExtra("password", passwordFromDB);
-
-                        startActivity(intent);
-
-
-
-                    }else{
-                        password.setError("Wrong password");
-                        password.requestFocus();
-                    }
-                }else{
-                    username.setError("No such user exists");
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-    }
-*/
-
 }

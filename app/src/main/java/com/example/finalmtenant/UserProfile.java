@@ -96,10 +96,10 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
                    String rent=(String)snapshot.child("Rent").getValue();
                    String apartmentNo=(String)snapshot.child("Apartment No").getValue();
 
-                   name.setText(fullName);
-                   uName.setText(userName);
-                   amount.setText(rent);
-                   apartment.setText(apartmentNo);
+//                   name.setText(fullName);
+//                   uName.setText(userName);
+//                   amount.setText(rent);
+//                   apartment.setText(apartmentNo);
 
 
            }
@@ -112,6 +112,11 @@ public class UserProfile extends AppCompatActivity implements NavigationView.OnN
 
     }
 
+    public void logout(MenuItem item){
+        startActivity(new Intent(UserProfile.this, Login.class));
+        preferences.clearData(this);
+        finish();
+    }
     @Override
     public void onBackPressed() {
 

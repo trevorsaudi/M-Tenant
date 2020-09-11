@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#00271E"
     android:orientation="vertical"
-    tools:context=".TenantsActivity">
+    tools:context=".History">
     <include
         layout="@layout/appbar"
         />
@@ -15,17 +15,6 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
-        android:contentDescription="add"
-        android:backgroundTint="#B5E577"
-        android:src="@drawable/add" />
-
 
 
 </LinearLayout>

@@ -13,9 +13,9 @@
         android:id="@+id/logo_image"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_gravity="center_horizontal"
         android:src="@drawable/logo2"
-        android:transitionName="logo_image" />
+        android:transitionName="logo_image"
+        android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:id="@+id/logo_name"
@@ -47,11 +47,11 @@
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/email"
+            android:id="@+id/username"
             style="@style/LoginTextInputLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="Username"
 
             android:textColorHint="@android:color/white"
             android:transitionName="username_tran">
@@ -60,8 +60,9 @@
                 style="@style/LoginTextInputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:inputType="text"
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,21 +83,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"/>
 
         </com.google.android.material.textfield.TextInputLayout>
-
-        <Switch
-            android:id="@+id/active"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="20dp"
-            android:text="Remember me"
-            android:textColor="@color/white"
-
-
-            />
 
         <TextView
             style="@style/Widget.AppCompat.Button.Borderless"
@@ -110,7 +99,6 @@
             android:textColor="#fff"
 
             />
-
 
         <Button
             android:id="@+id/login_btn"
@@ -126,8 +114,8 @@
             />
 
         <TextView
-            android:id="@+id/signup_screen"
             style="@style/Widget.AppCompat.Button.Borderless"
+            android:id="@+id/signup_screen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -135,8 +123,8 @@
             android:elevation="0dp"
             android:fontFamily="@font/antic"
             android:text="New User? SIGN UP"
-            android:textColor="#fff"
             android:textStyle="bold"
+            android:textColor="#fff"
             android:transitionName="login_signup_tran"
 
             />

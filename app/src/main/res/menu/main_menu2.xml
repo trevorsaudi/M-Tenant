@@ -4,24 +4,22 @@
 
     <group android:checkableBehavior="single">
 
-
-
         <item
             android:id="@+id/nav_payment"
-            android:icon="@drawable/man_small"
-            android:title="View Tenants"
+            android:icon="@drawable/moneysmall"
+            android:title="Pay via mpesa"
 
             />
         <item
             android:id="@+id/chat_bot"
-            android:icon="@drawable/man_small"
-            android:title="Chatbot"
+            android:icon="@drawable/moneysmall"
+            android:title="Pay via paypal"
 
             />
         <item
             android:id="@+id/nav_history"
-            android:icon="@drawable/history_small"
-            android:title="View payment history" />
+            android:icon="@drawable/robot"
+            android:title="Chatbot" />
 
 
     </group>

@@ -11,55 +11,52 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".splash_screen"></activity>
+        <activity android:name=".LoginSession">
+
+        </activity>
+        <activity
+            android:name=".History"
+            android:parentActivityName=".Landlord_profile" />
+        <activity android:name=".splash_screen" />
         <activity android:name=".PaypalConfirmation" />
-        <activity android:name=".PaypalPay"
-            android:parentActivityName=".UserProfile"
-            />
-        <activity android:name=".MpesaPay"
-            android:parentActivityName=".UserProfile"
-            >
+        <activity
+            android:name=".PaypalPay"
+            android:parentActivityName=".UserProfile" />
+        <activity
+            android:name=".MpesaPay"
+            android:parentActivityName=".UserProfile" />
+        <activity android:name=".LoginTenant" />
+        <activity
+            android:name=".Target_tenant"
+            android:parentActivityName=".TenantsActivity" />
+        <activity
+            android:name=".AddNewTenant"
+            android:parentActivityName=".TenantsActivity" />
+        <activity android:name=".OnboardingMain" />
+        <activity
+            android:name=".TenantsActivity"
+            android:parentActivityName=".Landlord_profile" />
+        <activity android:name=".Intro_screen" />
+        <activity android:name=".Landlord_profile">
+
+
+        </activity>
+        <activity android:name=".UserProfile"></activity>
+        <activity android:name=".SignUp" />
+        <activity android:name=".Dashboard" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".LoginTenant" />
-        <activity android:name=".Target_tenant"
-            android:parentActivityName=".TenantsActivity"
-
-        >
-
-        </activity>
-        <activity android:name=".AddNewTenant"
-        android:parentActivityName=".TenantsActivity"
-            >
+        <activity android:name=".Login">
 
 
         </activity>
-        <activity android:name=".OnboardingMain">
 
-        </activity>
-        <activity
-            android:name=".TenantsActivity"
-            android:parentActivityName=".Landlord_profile" />
-
-
-        <activity android:name=".Intro_screen" />
-        <activity android:name=".Landlord_profile" >
-
-        </activity>
-        <activity android:name=".UserProfile" >
-
-        </activity>
-        <activity android:name=".SignUp" />
-        <activity android:name=".Dashboard" />
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".Login" />
+        <activity android:name=".SignUp_tenant" />
 
         <meta-data
             android:name="preloaded_fonts"

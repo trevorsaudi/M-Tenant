@@ -15,5 +15,13 @@
         android:id="@+id/setting"
         app:showAsAction="never"
         />
+    <item
+        android:onClick="logout"
+        android:title="logout"
+        android:id="@+id/nav_logout"
+        app:showAsAction="never"
+        />
+
+
 
 </menu>

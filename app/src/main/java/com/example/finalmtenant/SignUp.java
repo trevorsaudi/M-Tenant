@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,15 +26,16 @@ import java.util.regex.Pattern;
 
 public class SignUp extends AppCompatActivity {
 
-    //variables
-    private TextInputLayout regName, regUsername, regEmail, regPhoneNo, regPassword;
     Button regBtn;
     TextView regToLoginBtn;
     Pattern pattern;
+    //variables
+    private TextInputLayout regName, regUsername, regEmail, regPhoneNo, regPassword;
     //FirebaseDatabase rootNode;
-   private DatabaseReference userDetailsReference;
+    private DatabaseReference userDetailsReference;
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
+    private Users user;
 
 
     @Override
@@ -48,177 +51,116 @@ public class SignUp extends AppCompatActivity {
         regPhoneNo = findViewById(R.id.phoneNo);
         regPassword = findViewById(R.id.password);
         regBtn = findViewById(R.id.reg_btn);
-        regToLoginBtn=findViewById(R.id.login_btn);
+        regToLoginBtn = findViewById(R.id.login_btn);
+
 
         regToLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(SignUp.this, Login.class);
+                Intent intent = new Intent(SignUp.this, Login.class);
                 startActivity(intent);
             }
         });
-
+        //initialize an instance of firebase authentication by calling the getinstance() method
         mAuth = FirebaseAuth.getInstance();
+        //Initialize an instance of firebase Database by calling the getInstance() method
         database = FirebaseDatabase.getInstance();
+        //Initialize an instance of Firebase Database reference by calling the database instance,
+        //getting a reference using the getReference() method on the dataabase, and creating
+        //a a child node, in out case "Users" where we will store details of registered users
         userDetailsReference = database.getReference().child("Users");
 
+        ///For already registered user we want to redirect them to the login directly without
+        //registering them again
+//       For this function, setOnlickLIstener on the textView object of redirecting user to Login Activity
+//        Create a login activity first using the empty activity template
+//        Implement an intent to launch this
+
+        regToLoginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent loginIntent = new Intent(SignUp.this,Login.class);
+                startActivity(loginIntent);
+            }
+        });
+
+        //set an onclick listener on your register button, on clicking this button we want to get
+//        the username, email, password the user enters ont edit text field
+//        further we want to open a new activity called profile activity where will allow our users to
+//        set a custom display name and their profile image
 
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                //create a toast
                 Toast.makeText(SignUp.this, "LOADING...",Toast.LENGTH_SHORT).show();
-                final String name = regName.getEditText().getText().toString().trim();
+                //get the username entered
                 final String email = regEmail.getEditText().getText().toString().trim();
                 final String password = regPassword.getEditText().getText().toString().trim();
-                final String pNo = regPhoneNo.getEditText().getText().toString().trim();
 
+                final String username = regUsername.getEditText().getText().toString();
+                final String phoneNo = regPhoneNo.getEditText().getText().toString();
+                final String fullName = regName.getEditText().getText().toString();
+                final String as = "admin";
 
-                if(!TextUtils.isEmpty(email)&& !TextUtils.isEmpty(name)&& !TextUtils.isEmpty(password) && !TextUtils.isEmpty(pNo)) {
+                if(!TextUtils.isEmpty(email)&& !TextUtils.isEmpty(username)&& !TextUtils.isEmpty(password)){
+                    //create a new createAccount method that takes ina an email address and password, validates them and
+                    //then creates a new user with the [createuserwitheemailandpassword] using the
+//                    using the instance of firebase authentication (mauth) we created anc alls addOnCompleteListender
                     mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            String user_id = mAuth.getCurrentUser().getUid();
-                            DatabaseReference current_user_db = userDetailsReference.child(user_id);
-                            current_user_db.child("Username").setValue(name);
-                            current_user_db.child("Email").setValue(email);
-                            current_user_db.child("Phone Number").setValue(pNo);
-                            current_user_db.child("Password").setValue(password);
-                            Toast.makeText(SignUp.this,"Registration Successful", Toast.LENGTH_SHORT).show();
+                            //override  the oncompelte method where we'll store this registered use ron our database with respect to their unique id's
+//
+//                            //create a string variable to get uthe user id of currently registered user
+//                            String user_id = mAuth.getCurrentUser().getUid();
+//                            //create a child node database reference to attach the suer_id to the user node
+//                            DatabaseReference current_user_db = userDetailsReference.child(user_id);
+//                            //set the username and image on the user' unique path (current_users_db)
+//                            current_user_db.child("Username").setValue(username);
+//                            current_user_db.child("Image").setValue("Default");
+//                            //male a toast to show the user that they've been successfully registred and then
+//                            Toast.makeText(SignUp.this,"Registration Successful", Toast.LENGTH_SHORT).show();
+//                                    //Create a profile activity using empty acitivty template
+//                            //launch the profile acitivty for use to set their preffered profile
+//                            Intent profIntent = new Intent(SignUp.this,ProfileActivity.class);
+//                            profIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                            startActivity(profIntent);
 
-                            Intent intent = new Intent(SignUp.this, Login.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
+                            if(task.isSuccessful()){
+                                String user_id = mAuth.getCurrentUser().getUid();
+//                                create a child node database reference to attach the use rid to the users node
+                                DatabaseReference current_user = userDetailsReference.child(user_id);
+                                current_user.child("email").setValue(email);
+                                current_user.child("fullName").setValue(fullName);
+
+                                current_user.child("password").setValue(password);
+                                current_user.child("phoneNo").setValue(phoneNo);
+                                current_user.child("username").setValue(username);
+                                current_user.child("as").setValue(as);
+                                Toast.makeText(SignUp.this, "Registration successful", Toast.LENGTH_SHORT).show();
+
+                                Intent profIntent = new Intent(SignUp.this, Login.class);
+                                profIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(profIntent);
+                            }else{
+                                String error = task.getException().getMessage();
+                                Toast.makeText(SignUp.this, "error:" + error, Toast.LENGTH_SHORT).show();
+
+                            }
+
+
                         }
                     });
-                }
-                else{
+                }else{
                     Toast.makeText(SignUp.this,"Complete all fields",Toast.LENGTH_SHORT).show();
 
                 }
+
             }
+
         });
-////        save data in firebase on button click
-//        regBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                rootNode = FirebaseDatabase.getInstance();
-//                reference = rootNode.getReference("user");
-//
-//
-////                get all the values
-//                String name = regName.getEditText().getText().toString();
-//                String username = regUsername.getEditText().getText().toString();
-//                String email = regEmail.getEditText().getText().toString();
-//                String phoneNo = regPhoneNo.getEditText().getText().toString();
-//                String password = regPassword.getEditText().getText().toString();
-//
-//                UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo, password);
-//
-//                reference.child(phoneNo).setValue(helperClass);
-//
-//
-//            }
-//        });
-
 
     }
 
-   /* private Boolean validateName() {
-        String val = regName.getEditText().getText().toString();
-
-        if (val.isEmpty()) {
-            regName.setError("Field cannot be empty");
-            return false;
-        } else {
-            regName.setError(null);
-            return true;
-        }
-
-    }
-
-    private Boolean validateUsername() {
-        String val = regUsername.getEditText().getText().toString();
-        String noWhiteSpace = "\\A\\w{4,20}\\z";
-
-        if (val.isEmpty()) {
-            regUsername.setError("Field cannot be empty");
-            return false;
-        } else if (val.length() >= 15) {
-            regUsername.setError("Username too long");
-            return false;
-        } else if (!val.matches(noWhiteSpace)) {
-            regUsername.setError("White Spaces are not allowed");
-            return false;
-        } else {
-            regUsername.setError(null);
-            regUsername.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-    private Boolean validateEmail() {
-        String val = regEmail.getEditText().getText().toString();
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-
-        if (val.isEmpty()) {
-            regEmail.setError("Field cannot be empty");
-            return false;
-        } else if (!val.matches(emailPattern)) {
-            regEmail.setError("Invalid email address");
-            return false;
-        } else {
-            regEmail.setError(null);
-            regEmail.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-    private Boolean validatePhoneNo() {
-        String val = regPhoneNo.getEditText().getText().toString();
-
-        if (val.isEmpty()) {
-            regPhoneNo.setError("Field cannot be empty");
-            return false;
-        } else {
-            regPhoneNo.setError(null);
-            regPhoneNo.setErrorEnabled(false);
-            return true;
-        }
-    }
-//    private Boolean validatePassword() {
-//        String val = regName.getEditText().getText().toString();
-//        String passwordVal =                //"(?=.*[0-9])" +         //at least 1 digit
-//                "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$";
-//        pattern = Pattern.compile(passwordVal);
-//        if (val.isEmpty()) {
-//            regPassword.setError("Field cannot be empty");
-//            return false;
-//        } else if (!val.matches(passwordVal)) {
-//            regPassword.setError("Password is too weak");
-//            return false;
-//        } else {
-//            regPassword.setError(null);
-//            regPassword.setErrorEnabled(false);
-//            return true;
-//    }
-
-
-    public void registerUser(View view) {
-
-        if(!validateName()  | !validatePhoneNo() | !validateEmail() | !validateUsername()){
-            return;
-        }
-//        get all the values in the string
-        String name = regName.getEditText().getText().toString();
-        String username = regUsername.getEditText().getText().toString();
-        String email = regEmail.getEditText().getText().toString();
-        String phoneNo = regPhoneNo.getEditText().getText().toString();
-        String password = regPassword.getEditText().getText().toString();
-        UserHelperClass helperClass = new UserHelperClass(name, username, email, phoneNo, password);
-        reference.child(username).setValue(helperClass);
-
-    }
-*/
-
-}
+}//    }

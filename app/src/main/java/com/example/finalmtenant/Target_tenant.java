@@ -2,9 +2,11 @@ package com.example.finalmtenant;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,11 +27,15 @@ public class Target_tenant extends AppCompatActivity {
     EditText textViewName,textViewUsername,textViewApartmentno,textViewRent,textViewEmail,textViewPassword,textViewpNo;
     DatabaseReference reference;
     Button updateBtn;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_target_tenant);
+        toolbar = findViewById(R.id.myToolBar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         textViewName = findViewById(R.id.textViewName);
         textViewUsername = findViewById(R.id.textViewUserName);
         textViewApartmentno = findViewById(R.id.textViewApartmentNo);
@@ -40,6 +46,7 @@ public class Target_tenant extends AppCompatActivity {
         updateBtn=findViewById(R.id.update);
 
         reference = FirebaseDatabase.getInstance().getReference("Tenants");
+        Log.w("message", reference.toString());
 
         String key = getIntent().getStringExtra("key");
         reference.child(key).addValueEventListener(new ValueEventListener() {

@@ -1,6 +1,7 @@
 package com.example.finalmtenant;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 
@@ -23,20 +24,24 @@ import com.paypal.android.sdk.payments.PaymentConfirmation;
 import org.json.JSONException;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class PaypalPay extends AppCompatActivity {
     private DatabaseReference myRef;
     //The views
     private Button buttonPay;
     private EditText editTextAmount;
-
     //Payment Amount
     private String paymentAmount;
-
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paypal_pay);
+//        toolbar = findViewById(R.id.myToolBar);
+//        setSupportActionBar(toolbar);
+//        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+//
 
         buttonPay = (Button) findViewById(R.id.buttonPay);
         editTextAmount = (EditText) findViewById(R.id.editTextAmount);
@@ -54,9 +59,9 @@ public class PaypalPay extends AppCompatActivity {
                 final String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 final DatabaseReference current_user_db = myRef.child(userId);
                 String Amount = editTextAmount.getText().toString().trim();
-                current_user_db.child("Amount Paid").setValue(Amount);
+                current_user_db.child("amount").setValue(Amount);
                 current_user_db.child("User Id").setValue(userId);
-                current_user_db.child("Paid via").setValue("Paypal");
+                current_user_db.child("mode").setValue("Paypal");
             }
         });
 

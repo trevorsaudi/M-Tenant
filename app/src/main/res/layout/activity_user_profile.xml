@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:id="@+id/nav_view"
         app:headerLayout="@layout/header"
-        app:menu="@menu/main_menu"
+        app:menu="@menu/main_menu2"
         android:layout_gravity="start"
         />
 
@@ -55,7 +55,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/ic_account_circle" />
+                android:src="@drawable/man_small" />
 
             <TextView
                 android:id="@+id/full_name"
@@ -66,7 +66,7 @@
                 android:layout_toRightOf="@+id/profile_image"
                 android:fontFamily="@font/autour_one"
                 android:includeFontPadding="false"
-                android:text="Trevor Saudi"
+                android:text="Joy Wabwire"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
@@ -78,7 +78,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/profile_image"
                 android:includeFontPadding="false"
-                android:text="trevorsaudi"
+                android:text="joy"
                 android:textColor="@android:color/white"
                 android:textSize="14sp"
 
@@ -111,7 +111,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/ic_payment" />
+                        android:src="@drawable/moneysmall" />
 
                     <TextView
                         android:id="@+id/payment_label"
@@ -120,7 +120,7 @@
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/autour_one"
                         android:includeFontPadding="false"
-                        android:text="$124"
+                        android:text="6000 KE"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
 
@@ -158,7 +158,7 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_centerHorizontal="true"
-                        android:src="@drawable/ic_place" />
+                        android:src="@drawable/housesmall" />
 
                     <TextView
                         android:id="@+id/apartment_label"
@@ -167,7 +167,7 @@
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/autour_one"
                         android:includeFontPadding="false"
-                        android:text="4B"
+                        android:text="32"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
 
@@ -210,7 +210,7 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_account_circle2"
                     android:drawablePadding="10dp"
-                    android:text="Trevor Saudi"
+                    android:text="Joy Wabwire"
 
                     />
 
@@ -228,7 +228,7 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_email"
                     android:drawablePadding="10dp"
-                    android:text="isatrevor052@gmail.com"
+                    android:text="joy@gmail.com"
 
                     />
 
@@ -264,7 +264,7 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_eye"
                     android:drawablePadding="10dp"
-                    android:text="hello1235"
+                    android:text="joysplace"
 
                     />
 
@@ -278,7 +278,8 @@
                 android:background="#002B21"
                 android:fontFamily="@font/autour_one"
                 android:text="Pay Mpesa"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white" />
+
             <Button
                 android:id="@+id/pay_paypal"
                 android:layout_width="match_parent"
@@ -286,7 +287,7 @@
                 android:background="#002B21"
                 android:fontFamily="@font/autour_one"
                 android:text="Pay Paypal"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white" />
 
 
         </LinearLayout>

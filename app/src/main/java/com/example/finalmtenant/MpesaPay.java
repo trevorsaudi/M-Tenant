@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -26,12 +27,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+import java.util.Objects;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MpesaPay extends AppCompatActivity {
     private DatabaseReference myRef;
     private FirebaseAuth mAuth;
+    Toolbar toolbar;
     private FirebaseUser mCurrentUser;
     @BindView(R.id.number) EditText mNumber;
     @BindView(R.id.amount) EditText mAmount;
@@ -42,7 +46,10 @@ public class MpesaPay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mpesa_pay);
 
-
+//        toolbar = findViewById(R.id.myToolBar);
+//        setSupportActionBar(toolbar);
+//        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+//
 
         ButterKnife.bind(this);
 
@@ -71,9 +78,9 @@ public class MpesaPay extends AppCompatActivity {
                     }
 
                     current_user_db.child("pNo").setValue(phonenumber);
-                    current_user_db.child("Amount Paid").setValue(Amount);
+                    current_user_db.child("amount").setValue(Amount);
                     current_user_db.child("User Id").setValue(userId);
-                    current_user_db.child("Paid via").setValue("M-pesa");
+                    current_user_db.child("mode").setValue("M-pesa");
                     LNMExpress lnmExpress = new LNMExpress(
                             "174379",
                             "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919",  //https://developer.safaricom.co.ke/test_credentials

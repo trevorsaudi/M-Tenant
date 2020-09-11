@@ -8,6 +8,8 @@
     tools:context=".PaypalPay">
 
 
+
+
     <include
         android:id="@+id/include"
         layout="@layout/appbar"
@@ -22,6 +24,8 @@
         android:layout_marginEnd="85dp"
         android:ems="10"
         android:hint="Enter the amount"
+        android:textColor="@color/white"
+        android:backgroundTint="@android:color/white"
         android:inputType="number"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

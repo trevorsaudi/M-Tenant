@@ -2,6 +2,7 @@ package com.example.finalmtenant;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,9 +26,10 @@ public class AddNewTenant extends AppCompatActivity {
 
     private TextInputLayout regName, regUsername, regEmail, regPhoneNo, regPassword,regApartmentNo,Rent;
     Button addTenantBtn;
-    FirebaseDatabase database;
-    DatabaseReference myRef;
+    private FirebaseDatabase database;
+    private DatabaseReference myRef,myRef2;
     private FirebaseAuth mAuth;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +46,17 @@ public class AddNewTenant extends AppCompatActivity {
         regApartmentNo=findViewById(R.id.apartment_no);
         Rent=findViewById(R.id.rent);
         addTenantBtn=findViewById(R.id.addTenant_btn);
+        toolbar = findViewById(R.id.myToolBar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-      insertData();
+
+        insertData();
     }
     private void insertData(){
         database=FirebaseDatabase.getInstance();
         myRef=database.getReference().child("Tenants");
+        myRef2=database.getReference().child("login");
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -66,36 +73,66 @@ public class AddNewTenant extends AppCompatActivity {
                 final String apartmentNo = regApartmentNo.getEditText().getText().toString().trim();
                 final String rent = Rent.getEditText().getText().toString().trim();
 
-                /*Tenants tenants=new Tenants(name,username,email,pNo, apartmentNo,rent,password);
-
-                long mDateTime=9999999999999L-System.currentTimeMillis();
-                String mOrderTime=String.valueOf(mDateTime);
-                myRef.child(mOrderTime).setValue(tenants).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(AddNewTenant.this,"Adding new tenant successful", Toast.LENGTH_SHORT).show();
-                        Intent intent=new Intent(AddNewTenant.this,TenantsActivity.class);
-                        startActivity(intent);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(AddNewTenant.this,"Adding new tenant Failed", Toast.LENGTH_SHORT).show();
-                    }
-                });*/
+                /*final Tenants tenants=new Tenants(name,username,email,pNo, apartmentNo,rent,password);
                 if(!TextUtils.isEmpty(email)&& !TextUtils.isEmpty(name)&& !TextUtils.isEmpty(password) && !TextUtils.isEmpty(pNo)) {
                     mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             String user_id = mAuth.getCurrentUser().getUid();
                             DatabaseReference current_user_db = myRef.child(user_id);
-                            current_user_db.child("Name").setValue(name);
-                            current_user_db.child("Username").setValue(username);
-                            current_user_db.child("Email").setValue(email);
-                            current_user_db.child("Phone Number").setValue(pNo);
-                            current_user_db.child("Password").setValue(password);
-                            current_user_db.child("Apartment No").setValue(apartmentNo);
-                            current_user_db.child("Rent").setValue(rent);
+                            current_user_db.setValue(tenants);
+
+                            Toast.makeText(AddNewTenant.this,"Registration Successful", Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(AddNewTenant.this, TenantsActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                        }
+                    });
+                }
+                else{
+                    Toast.makeText(AddNewTenant.this,"Complete all fields",Toast.LENGTH_SHORT).show();
+
+                }*/
+                Tenants tenants=new Tenants(name,username,email,pNo, apartmentNo,rent,password);
+                long mDateTime=9999999999999L-System.currentTimeMillis();
+                String mOrderTime=String.valueOf(mDateTime);
+                //String user_id = mAuth.getCurrentUser().getUid();
+                // DatabaseReference current_user_db = myRef.child(user_id);
+                myRef.child(mOrderTime).setValue(tenants).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+
+
+                        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                Toast.makeText(AddNewTenant.this,"Adding new tenant successful", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        Toast.makeText(AddNewTenant.this,"Adding new tenant successful", Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(AddNewTenant.this,TenantsActivity.class);
+                        startActivity(intent);
+
+
+
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(AddNewTenant.this,"Adding new tenant Failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                //Tenants tenants=new Tenants(name,username,email,pNo, apartmentNo,rent,password);
+                if(!TextUtils.isEmpty(email)&& !TextUtils.isEmpty(name)&& !TextUtils.isEmpty(password) && !TextUtils.isEmpty(pNo)) {
+                    mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            String user_id = mAuth.getCurrentUser().getUid();
+                            DatabaseReference current_user_db = myRef.child(user_id);
+
                             Toast.makeText(AddNewTenant.this,"Registration Successful", Toast.LENGTH_SHORT).show();
 
                             Intent intent=new Intent(AddNewTenant.this,TenantsActivity.class);

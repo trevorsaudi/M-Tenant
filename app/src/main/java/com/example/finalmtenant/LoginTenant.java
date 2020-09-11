@@ -40,7 +40,7 @@ public class LoginTenant extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login_tenant);
 
         //hooks
@@ -53,22 +53,21 @@ public class LoginTenant extends AppCompatActivity {
         login_btn = findViewById(R.id.login_btn);
 
 
-
-        callSignUp.setOnClickListener(new View.OnClickListener(){
+        callSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginTenant.this, SignUp.class);
 
                 Pair[] pairs = new Pair[7];
-                pairs[0] = new Pair<View, String>(image,"logo_image");
-                pairs[1] = new Pair<View, String>(logoText,"logo_text" );
-                pairs[2] = new Pair<View, String>(sloganText,"logo_desc");
-                pairs[3] = new Pair<View, String>(mail,"username_tran");
-                pairs[4] = new Pair<View, String>(password,"password_tran");
-                pairs[5] = new Pair<View, String>(login_btn,"button_tran");
-                pairs[6] = new Pair<View, String>(callSignUp,"login_signup_tran");
+                pairs[0] = new Pair<View, String>(image, "logo_image");
+                pairs[1] = new Pair<View, String>(logoText, "logo_text");
+                pairs[2] = new Pair<View, String>(sloganText, "logo_desc");
+                pairs[3] = new Pair<View, String>(mail, "username_tran");
+                pairs[4] = new Pair<View, String>(password, "password_tran");
+                pairs[5] = new Pair<View, String>(login_btn, "button_tran");
+                pairs[6] = new Pair<View, String>(callSignUp, "login_signup_tran");
 
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(LoginTenant.this,pairs);
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(LoginTenant.this, pairs);
                 startActivity(intent, options.toBundle());
             }
         });
@@ -81,25 +80,25 @@ public class LoginTenant extends AppCompatActivity {
                 String email = mail.getEditText().getText().toString().trim();
                 String pass = password.getEditText().getText().toString().trim();
 
-                if(!TextUtils.isEmpty(email)&& !TextUtils.isEmpty(pass)){
-                    mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(pass)) {
+                    mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-                                checkUserExistence();
-                            }
-                            else{
-                                Toast.makeText(LoginTenant.this,"Couldn't login, user not found", Toast.LENGTH_SHORT).show();
+                            if (task.isSuccessful()) {
+                                Intent intent = new Intent(LoginTenant.this, UserProfile.class);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(LoginTenant.this, "Couldn't login, user not found", Toast.LENGTH_SHORT).show();
 
                             }
                         }
                     });
-                }
-                else{
-                    Toast.makeText(LoginTenant.this, "Complete all fields",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LoginTenant.this, "Complete all fields", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
     }
 
     public void checkUserExistence(){
@@ -124,6 +123,9 @@ public class LoginTenant extends AppCompatActivity {
             }
         });
     }
+
+
+}
 
     /*private Boolean validateUsername() {
         String val = username.getEditText().getText().toString();
@@ -220,5 +222,3 @@ public class LoginTenant extends AppCompatActivity {
 
     }
 */
-
-}

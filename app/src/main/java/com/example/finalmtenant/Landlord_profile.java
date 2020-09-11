@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ public class Landlord_profile extends AppCompatActivity implements NavigationVie
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-    TextView tenants,logoutLandlord,totalAmount,username;
+    TextView tenants,logoutLandlord,totalAmount,username,history;
     FirebaseAuth mAuth;
 
     @Override
@@ -39,6 +40,7 @@ public class Landlord_profile extends AppCompatActivity implements NavigationVie
         toolbar = findViewById(R.id.tool_bar);
 
         tenants=findViewById(R.id.tenants);
+        history=findViewById(R.id.history);
         logoutLandlord=findViewById(R.id.nav_logout);
         totalAmount=findViewById(R.id.total);
 
@@ -49,6 +51,14 @@ public class Landlord_profile extends AppCompatActivity implements NavigationVie
             public void onClick(View view) {
                Intent intent=new Intent(Landlord_profile.this,TenantsActivity.class);
                startActivity(intent);
+            }
+        });
+
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Landlord_profile.this,History.class);
+                startActivity(intent);
             }
         });
 
@@ -90,6 +100,12 @@ public class Landlord_profile extends AppCompatActivity implements NavigationVie
             super.onBackPressed();
         }
 
+    }
+
+    public void logout(MenuItem item){
+        startActivity(new Intent(Landlord_profile.this, Login.class));
+        preferences.clearData(this);
+        finish();
     }
 
     @Override

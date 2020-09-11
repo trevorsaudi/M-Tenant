@@ -61,7 +61,7 @@ public class TenantsActivity extends AppCompatActivity {
         FloatingActionButton addTenants = findViewById(R.id.fab);
 //        addTenants = findViewById(R.id.addNewTenant);
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
+//        recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -78,15 +78,11 @@ public class TenantsActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        return true;
-    }
+
 
     private void displayData() {
         reference = FirebaseDatabase.getInstance().getReference("Tenants");
+        Log.w("reference", reference.toString());
 
         options = new FirebaseRecyclerOptions.Builder<Tenants>().setQuery(reference, Tenants.class).build();
         adapter = new FirebaseRecyclerAdapter<Tenants, TenantViewHolder>(options) {
